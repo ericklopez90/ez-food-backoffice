@@ -21,10 +21,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let list of lista">
+            <tr *ngFor="let list of lista" (click)="showDetail()" class="pointer">
               <td>{{list.id}}</td>
               <td>{{list.mesa}}</td>
-              <td>{{list.mesa}}</td>
+              <td>{{list.mesero}}</td>
               <td class="center">{{list.total | currency}}</td>
               <td class="center"> {{list.metodoPago}} </td>
               <td class="text-center">

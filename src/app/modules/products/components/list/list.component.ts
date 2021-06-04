@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -88,9 +89,16 @@ export class ListComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor( private _router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  showNewProduct():void{
+  this._router.navigateByUrl('products/new-product');
+  }
+  showEditProduct():void{
+  this._router.navigateByUrl('products/edit-product');
   }
 
 }

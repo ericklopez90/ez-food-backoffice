@@ -1,15 +1,16 @@
 <div class="row  border-bottom white-bg dashboard-header gx-5">
   <div class="col-12">
-    <h1>Nuevo producto</h1>
+    <h1>Editando <span class="fw-bold7">Brownie de chocolate</span></h1>
   </div>
   <div class="col-12">
     <div class="row ">
       <div class="col-sm-4 m-1 ibox-content">
         <div class="form-group">
-          <input class="form-control" placeholder="Nombre">
+          <input class="form-control" placeholder="Brownie de chocolate">
         </div>
         <div class="form-group">
-          <textarea class="form-control form-control-sm" placeholder="Descripción"></textarea>
+          <textarea class="form-control form-control-sm"
+            placeholder="Dulce de azúcar sin harina, postre de pastel de chocolate, azúcar moreno empacado, comida, horneando"></textarea>
         </div>
         <div class="form-group">
           <input class="form-control form-control-sm" placeholder="Buscar ingredientes">
@@ -40,7 +41,6 @@
               </div>
             </div>
           </div>
-
           <div class="mt-3 p-5 bg-secondary border border-dark text-light border-radius text-center font-weight-bold">
             DRAG & DROP
           </div>
@@ -50,42 +50,44 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <input class="form-control form-control-sm" placeholder="Precio">
+              <input class="form-control form-control-sm" placeholder="$174.00">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <input class="form-control form-control-sm" placeholder="IVA" disabled>
+              <input class="form-control form-control-sm" placeholder="$27.84" disabled>
             </div>
           </div>
         </div>
         <div class="form-group">
           <select class="form-control form-control-sm">
-            <option selected disabled>Selecciona una categoría</option>
+            <option disabled>Selecciona una categoría</option>
             <option>Desayunos</option>
             <option>Cenas</option>
             <option>Bebidas</option>
+            <option selected>Postres</option>
           </select>
         </div>
         <div class="form-group">
           <select class="form-control form-control-sm">
-            <option selected disabled>Selecciona una subcategoría</option>
+            <option disabled>Selecciona una subcategoría</option>
             <option>Jugos</option>
             <option>Bebidas calientes</option>
             <option>Bebidas alcoholicas</option>
+            <option selected>Chocolate</option>
           </select>
         </div>
 
         <div class="input-group">
           <div class="custom-file">
             <input id="inputGroupFile01" type="file" class="custom-file-input">
-            <label class="custom-file-label" for="inputGroupFile01">Elige una imagen</label>
+            <label class="custom-file-label" for="inputGroupFile01">Brownie-de-chocolate.jpg</label>
           </div>
         </div>
 
         <div class="form-group">
           <button class="btn btn-sm btn-outline-primary mt-3">
-            Agregar
+            Actualizar
           </button>
         </div>
 
@@ -93,8 +95,36 @@
 
       <div class="col-sm-4 ibox-content family m-1">
         <div class="bg-secondary text-light font-weight-bold text-center h-100">
-          <div class=" p-5 bg-secondary text-light text-center font-weight-bold">
-            <img src="assets/img/plato.png" alt="">
+          <div class="row">
+            <div class="col-lg-12 mt-4 ">
+              <div class="product-card product-list mb-30">
+                <a class="product-thumb" [routerLink]="['/shop/single']">
+                  <img src="assets/img/postre1.png" class="imagen-produc">
+                </a>
+                <div class="product-card-inner">
+                  <div class="product-card-body">
+                    <div class="product-category">
+                      <span class="product-title">
+                        <a [routerLink]="['/shop/single']">
+                          Brownie de chocolate
+                        </a>
+                      </span>
+                      <div class="product-category">
+                        <a class="text-decoration-none text-secondary">
+                          Dulce de azúcar sin harina, postre de pastel de chocolate, azúcar moreno empacado, comida,
+                          horneando
+                        </a>
+                      </div>
+                      <div>
+                        <span class="product-price mt-4">
+                          $174.00
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

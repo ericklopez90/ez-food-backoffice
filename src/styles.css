@@ -22,10 +22,10 @@
     font-size: 1rem!important;
 }
 .fs-8{
-    font-size: 16px!important;
+    font-size: 0.7rem!important;
 }
 .fs-9{
-    font-size: 14px!important;
+    font-size: 16px!important;
 }
 .fs-10{
     font-size: 12px!important;
@@ -53,20 +53,4 @@
 }
 .fw-bold8{
     font-weight: 800!important;
-}
-
-.gx-5 {
-    --bs-gutter-x: 3rem;
-}
-.gx-4 {
-    --bs-gutter-x: 1.5rem;
-}
-.gx-3 {
-    --bs-gutter-x: 1rem;
-}
-.gx-2 {
-    --bs-gutter-x: 0.5rem;
-}
-.gx-1 {
-    --bs-gutter-x: 0.25rem;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -100,15 +101,13 @@ export class ListComponent implements OnInit {
     },
   ]
 
-  /*
-  label label-primary
-  label label-danger
-  label
-*/
-
-  constructor() { }
+  constructor( private _router: Router ) { }
 
   ngOnInit(): void {
+  }
+
+  showDetail() :void{
+    this._router.navigateByUrl('orders/detail');
   }
 }
 

@@ -5,6 +5,11 @@ import { OrdersComponent } from './orders.component';
 const routes: Routes = [
   {
     path:'',
+    redirectTo: 'list',
+    pathMatch: 'full'
+  },
+  {
+    path:'',
     component: OrdersComponent,
     children: [
       {

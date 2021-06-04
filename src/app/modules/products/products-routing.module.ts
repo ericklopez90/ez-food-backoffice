@@ -5,6 +5,11 @@ import { ProductsComponent } from './products.component';
 const routes: Routes = [
   {
     path:'',
+    redirectTo: 'list',
+    pathMatch: 'full'
+  },
+  {
+    path:'',
     component: ProductsComponent,
     children: [
       {
@@ -16,6 +21,11 @@ const routes: Routes = [
         path: 'new-product',
         loadChildren: () => import('modules/products/components/new-product/new-product.module')
           .then(m => m.NewProductModule)
+      },
+      {
+        path: 'edit-product',
+        loadChildren: () => import('modules/products/components/edit-product/edit-product.module')
+          .then(m => m.EditProductModule)
       },
     ]
   }

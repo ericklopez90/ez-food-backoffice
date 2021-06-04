@@ -9,7 +9,13 @@ import {
   HomeComponent
 } from './home.component';
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
+    path:'',
+    redirectTo: 'orders',
+    pathMatch: 'full'
+  },
+  {
   path: '',
   component: HomeComponent,
   children: [

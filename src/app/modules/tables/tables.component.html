@@ -5,9 +5,15 @@
   <div class="col-12">
     <div class="ibox-content">
       <div class="form-group">
-        <input class="form-control form-control-sm w-25" placeholder="Buscar mesa">
-        <button class="btn btn-sm btn-outline-primary">Nueva mesa</button>
-      </div>
+        <div class="row">
+            <div class="col-4">
+                <input class="form-control form-control-sm w-100" placeholder="Buscar mesa">
+            </div>
+            <div class="col-6 offset-2 text-right">
+              <button class="btn btn-sm btn-outline-primary">Nueva mesa</button>
+            </div>
+        </div>
+    </div>
       <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover dataTables-example">
           <thead>
@@ -21,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="gradeX">
+            <tr>
               <td>1</td>
               <td class="center">
                 <span class="label label-danger">Ocupada</span>
@@ -67,10 +73,10 @@
               <td></td>
               <td>
                 <select class="form-control form-control-sm">
-                  <option disabled>Selecciona un mesero</option>
+                  <option selected disabled>Selecciona un mesero</option>
                   <option>Suaberto López</option>
                   <option>Alberto Efecinco</option>
-                  <option selected>Roberto batelenguas</option>
+                  <option >Roberto batelenguas</option>
                 </select>
               </td>
               <td class="center">
