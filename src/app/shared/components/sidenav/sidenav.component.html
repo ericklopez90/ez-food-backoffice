@@ -3,24 +3,10 @@
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
         <div class="dropdown profile-element my-3">
-          <div class="text-center">
-            <img alt="image" class="rounded-circle" src="assets/img/profile_small.jpg" />
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <span class="block m-t-xs font-bold mt-2">Roberto Sanchez</span>
-              <span class="text-muted text-xs block">Gerente general</span>
-            </a>
-          </div>
+          <perfil></perfil>
         </div>
       </li>
-      <li>
-        <a [routerLink]="['orders']"><i class="fa fa-book"></i> <span class="nav-label">Ordenes</span></a>
-      </li>
-      <li>
-        <a [routerLink]="['products']"><i class="fa fa-cubes"></i> <span class="nav-label">Productos</span></a>
-      </li>
-      <li>
-        <a [routerLink]="['tables']"><i class="fa fa-cutlery"></i> <span class="nav-label">Mesas</span></a>
-      </li>
+      <links></links>
     </ul>
   </div>
 </nav>

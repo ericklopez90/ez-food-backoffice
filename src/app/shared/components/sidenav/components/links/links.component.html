@@ -1,0 +1,9 @@
+<div class="sidebar-collapse">
+  <ul class="nav metismenu" id="side-menu">
+    <li *ngFor=" let link of links">
+      <a [routerLink]="link.link">
+      <i class={{link.img}}></i> 
+      <span class="nav-label">{{link.name}}</span></a>
+    </li>
+  </ul>
+</div>
