@@ -5,7 +5,7 @@ import { CategoryComponent } from './category.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo: 'category',
+    redirectTo: 'categories',
     pathMatch: 'full'
   },
   {
@@ -13,12 +13,12 @@ const routes: Routes = [
     component: CategoryComponent,
     children: [
       {
-        path: 'category',
+        path: 'categories',
         loadChildren: () => import('@modules/category/components/category/category.module')
           .then(m => m.CategoryModule)
       },
       {
-        path: 'subcategory',
+        path: 'subcategories',
         loadChildren: () => import('@modules/category/components/subcategory/subcategory.module')
           .then(m => m.SubcategoryModule)
       },
