@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
+  categories : Category[] = categorys
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
+
+ interface Category {
+  name:string
+}
+
+export const categorys: Category[]=[
+  {
+    name: 'Desayunos'
+  },
+  {
+    name: 'Comidas'
+  },
+  {
+    name: 'Cenas'
+  },
+  {
+    name: 'Bebidas'
+  },
+  {
+    name: 'Postres'
+  },
+]

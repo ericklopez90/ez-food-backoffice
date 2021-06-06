@@ -18,17 +18,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="gradeX">
-              <td>Comidas</td>
-              <td>
-                <select class="form-control form-control-sm">
-                  <option>Si</option>
-                  <option>No</option>
-                </select>
-              </td>
-            </tr>
-            <tr class="gradeC">
-              <td>Desayunos</td>
+            <tr *ngFor="let category of categories">
+              <td>{{category.name}}</td>
               <td>
                 <select class="form-control form-control-sm">
                   <option>Si</option>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { categorys } from '../category/category.component'
 @Component({
   selector: 'app-subcategory',
   templateUrl: './subcategory.component.html',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubcategoryComponent implements OnInit {
 
+  categories = categorys
   constructor() { }
 
   ngOnInit(): void {

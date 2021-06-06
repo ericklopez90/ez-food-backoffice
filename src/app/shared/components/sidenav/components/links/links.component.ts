@@ -23,6 +23,11 @@ export class LinksComponent implements OnInit {
       img: 'fa fa-cutlery',
       name: 'Mesas',
     },
+    {
+      link: ['category'],
+      img: 'fa fa-cutlery',
+      name: 'Categoria',
+    },
   ]
 
   constructor() { }
