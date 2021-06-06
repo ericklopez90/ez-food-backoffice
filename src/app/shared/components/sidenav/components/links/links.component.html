@@ -1,9 +1,24 @@
 <div class="sidebar-collapse">
   <ul class="nav metismenu" id="side-menu">
-    <li *ngFor=" let link of links">
+    <li *ngFor=" let link of links" routerLinkActive="active" (click)="link.collapse = !link.collapse">
       <a [routerLink]="link.link">
-      <i class={{link.img}}></i> 
-      <span class="nav-label">{{link.name}}</span></a>
+        <i [ngClass]="link.img"></i>
+        <span class="nav-label">
+          {{link.name}}
+        </span>
+      </a>
+      <ng-container *ngIf="link.children">
+        <ul class="nav nav-second-level collapse" [ngClass]="{ 'in': link.collapse }">
+          <li *ngFor=" let child of link.children" routerLinkActive="active">
+            <a [routerLink]="child.link">
+              <i [ngClass]="child.img"></i>
+              <span class="nav-label">
+                {{child.name}}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </ng-container>
     </li>
   </ul>
 </div>
