@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinksComponent implements OnInit {
 
-  links: _Links[] = [
+  links: LinkInterface[] = [
     {
       link: ['orders'],
       img: 'fa fa-book',
@@ -24,10 +24,23 @@ export class LinksComponent implements OnInit {
       name: 'Mesas',
     },
     {
-      link: ['category'],
-      img: 'fa fa-cutlery',
-      name: 'Categoria',
-    },
+      link: [],
+      img: 'fa fa-tag',
+      name: 'Categorías',
+      collapse: false,
+      children: [
+        {
+          link: ['categories'],
+          img: 'fa fa-tag',
+          name: 'Categorías',
+        },
+        {
+          link: ['subcategories'],
+          img: 'fa fa-tags',
+          name: 'Subcategorías',
+        }
+      ]
+    }
   ]
 
   constructor() { }
@@ -36,8 +49,10 @@ export class LinksComponent implements OnInit {
   }
 }
 
-interface _Links {
+interface LinkInterface {
   link: string[],
   img: string,
   name: string,
+  children?: LinkInterface[],
+  collapse?: boolean
 }
