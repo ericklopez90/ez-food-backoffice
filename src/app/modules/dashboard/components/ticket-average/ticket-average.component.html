@@ -1,0 +1,15 @@
+<div class="bg-white mat-elevation-z5 px-1 py-3 text-center">
+  <p class="fs-4 text-secondary mt-3">Ticket Promedio</p>
+  <p class="fs-3 text-dark my-2 fw-bold7">$120.4</p>
+  <p class="text-success fs-6 mt-3">
+    <mat-icon>trending_up</mat-icon>
+    12%
+    <span class="text-secondary fs-6">
+      del periodo anterior
+    </span>
+  </p>
+
+  <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis" [dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid"
+    [stroke]="chartOptions.stroke" [markers]="chartOptions.markers"></apx-chart>
+</div>

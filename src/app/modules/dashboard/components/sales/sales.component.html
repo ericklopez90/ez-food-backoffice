@@ -1,4 +1,22 @@
-<div class="row mt-2"> 
-
-
+<div class="row mt-3">
+    <div class="col-12">
+        <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [markers]="chartOptions.markers"
+        [title]="chartOptions.title"
+        [fill]="chartOptions.fill"
+        [yaxis]="chartOptions.yaxis"
+        [xaxis]="chartOptions.xaxis"
+        [tooltip]="chartOptions.tooltip"
+        [autoUpdateSeries]="chartOptions.true"
+        [theme]="chartOptions.theme"
+        [grid]="chartOptions.grid"
+        [stroke]="chartOptions.stroke"
+        ></apx-chart>
+    </div>
 </div>
+
+
+    

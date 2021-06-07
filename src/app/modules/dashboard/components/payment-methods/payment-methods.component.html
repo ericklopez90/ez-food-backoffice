@@ -1,0 +1,47 @@
+<div class="bg-white mat-elevation-z5 px-1 py-3 text-center">
+    <p class="fs-4 text-secondary mt-3">Metodo de pago</p>
+  
+      <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [fill]="chartOptions.fill"
+      [stroke]="chartOptions.stroke"
+      [grid]='chartOptions.grid'
+      [responsive]='chartOptions.responsive'
+      [legend]='chartOptions.legend'
+      [dataLabels]='chartOptions.datalabels'
+      [theme]="chartOptions.theme">
+    </apx-chart>
+  
+      <div class="row mt-4 text-center">
+        <div class="col-6">
+          <p class="fs-9 m-0 text-secondary">AMEX</p>
+          <p class="fs-7 m-0 fw-bold7">30%</p>
+          <p class="fs-9 m-0 text-danger">
+            <mat-icon class="fs-8 m-0">arrow_downward</mat-icon>-0.6%
+          </p>
+        </div>
+        <div class="col-6">
+          <p class="fs-9 m-0 text-secondary">VISA/MC</p>
+          <p class="fs-7 m-0 fw-bold7">27.1%</p>
+          <p class="fs-9 m-0 text-success">
+            <mat-icon class="fs-8 m-0">arrow_upward</mat-icon>0.7%
+          </p>
+  
+        </div>
+        <div class="col-6 mt-2">
+          <p class="fs-9 m-0 text-secondary">Efectivo</p>
+          <p class="fs-7 m-0 fw-bold7">24.1%</p>
+          <p class="fs-9 m-0 text-success">
+            <mat-icon class="fs-8 m-0">arrow_upward</mat-icon>0.1%
+          </p>
+        </div>
+        <div class="col-6 mt-2">
+          <p class="fs-9 m-0 text-secondary">Paypal</p>
+          <p class="fs-7 m-0 fw-bold7">18.8%</p>
+          <p class="fs-9 m-0 text-success">
+            <mat-icon class="fs-8 m-0">arrow_upward</mat-icon>0.1%
+          </p>
+        </div>
+      </div>
+  </div>
