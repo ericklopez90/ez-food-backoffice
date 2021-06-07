@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinksComponent implements OnInit {
 
+
   links: LinkInterface[] = [
+    {
+      link: ['dashboard'],
+      img: 'fa fa-chart-line',
+      name: 'Dashboard',
+    },
     {
       link: ['orders'],
       img: 'fa fa-book',

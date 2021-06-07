@@ -6,6 +6,7 @@
         <span class="nav-label">
           {{link.name}}
         </span>
+        <span class="fa arrow-selector" [ngClass]="{ 'fa-chevron-down': link.collapse, 'fa-chevron-left': !link.collapse }" *ngIf="link.children"></span>
       </a>
       <ng-container *ngIf="link.children">
         <ul class="nav nav-second-level collapse" [ngClass]="{ 'in': link.collapse }">
