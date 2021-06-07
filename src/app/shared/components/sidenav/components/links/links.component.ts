@@ -9,6 +9,11 @@ export class LinksComponent implements OnInit {
 
   links: LinkInterface[] = [
     {
+      link: ['dashboard'],
+      img: 'fa fa-book',
+      name: 'Dashboard',
+    },
+    {
       link: ['orders'],
       img: 'fa fa-book',
       name: 'Ordenes',

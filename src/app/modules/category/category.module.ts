@@ -5,13 +5,15 @@ import { CategoryRoutingModule } from './category-routing.module';
 import { CategoryComponent } from './category.component';
 
 
+
 @NgModule({
   declarations: [
     CategoryComponent
   ],
   imports: [
     CommonModule,
-    CategoryRoutingModule
+    CategoryRoutingModule,
+   
   ]
 })
 export class CategoryModule { }

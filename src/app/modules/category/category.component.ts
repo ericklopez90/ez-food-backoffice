@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-category',
@@ -9,9 +10,12 @@ export class CategoryComponent implements OnInit {
   
   categories : Category[] = categorys
 
-  constructor() { }
+  constructor( private toastr :ToastrService) { }
 
   ngOnInit(): void {
+  }
+  showSuccess() {
+    this.toastr.success('Se ha agregado correctamente', 'Hecho!');
   }
 }
 

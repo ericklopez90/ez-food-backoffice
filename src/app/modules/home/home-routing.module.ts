@@ -44,6 +44,11 @@ const routes: Routes = [
       loadChildren: () => import('@modules/subcategories/subcategories.module')
         .then(m => m.SubcategoriesModule)
     },
+    {
+      path: 'dashboard',
+      loadChildren: () => import('@modules/dashboard/dashboard.module')
+        .then(m => m.DashboardModule)
+    },
   ]
 }];
 
