@@ -18,9 +18,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="gradeX">
-              <td>Cocina mexicana</td>
-              <td>Comidas</td>
+            <tr *ngFor="let subcategory of subcategories">
+              <td>{{subcategory.name}}</td>
+              <td>{{subcategory.categories}}</td>
               <td>
                 <select class="form-control form-control-sm">
                   <option>Si</option>
@@ -28,26 +28,7 @@
                 </select>
               </td>
             </tr>
-            <tr class="gradeC">
-              <td>Cocina Italiana</td>
-              <td>Comidas</td>
-              <td>
-                <select class="form-control form-control-sm">
-                  <option>Si</option>
-                  <option>No</option>
-                </select>
-              </td>
-            </tr>
-            <tr class="gradeC">
-              <td>Cena romanticona</td>
-              <td>Cenas</td>
-              <td>
-                <select class="form-control form-control-sm">
-                  <option>Si</option>
-                  <option>No</option>
-                </select>
-              </td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -77,7 +58,7 @@
 
         </select>
       </div>
-      <button class="btn btn-outline-primary btn-sm mt-3">Agregar</button>
+      <button class="btn btn-outline-primary btn-sm mt-3" (click)="showSuccess()">Agregar</button>
     </div>
   </div>
 </div>

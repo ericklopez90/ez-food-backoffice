@@ -5,6 +5,8 @@ import { AppRoutingModule } from 'app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgApexchartsModule } from 'ng-apexcharts'
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgApexchartsModule,
+    ToastrModule.forRoot()
   
   ],
   providers: [],

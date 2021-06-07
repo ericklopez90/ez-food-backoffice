@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'second',
   templateUrl: './second.component.html',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecondComponent implements OnInit {
 
-  constructor() { }
+  constructor( private toastr :ToastrService) { }
 
   ngOnInit(): void {
   }
-
+  showSuccess() {
+    this.toastr.success('Se ha agregado correctamente', 'Hecho!');
+  }
 }
