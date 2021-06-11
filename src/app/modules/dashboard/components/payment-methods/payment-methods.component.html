@@ -1,17 +1,20 @@
 <div class="bg-white mat-elevation-z5 px-1 py-3 text-center">
     <p class="fs-4 text-secondary mt-3">Metodo de pago</p>
-  
-      <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [fill]="chartOptions.fill"
-      [stroke]="chartOptions.stroke"
-      [grid]='chartOptions.grid'
-      [responsive]='chartOptions.responsive'
-      [legend]='chartOptions.legend'
-      [dataLabels]='chartOptions.datalabels'
-      [theme]="chartOptions.theme">
-    </apx-chart>
+    <div class="row mx-4">
+      <div class="col-12">
+        <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [fill]="chartOptions.fill"
+        [stroke]="chartOptions.stroke"
+        [grid]='chartOptions.grid'
+        [responsive]='chartOptions.responsive'
+        [legend]='chartOptions.legend'
+        [dataLabels]='chartOptions.datalabels'
+        [theme]="chartOptions.theme">
+      </apx-chart>
+      </div>
+    </div>
   
       <div class="row mt-4 text-center">
         <div class="col-6">

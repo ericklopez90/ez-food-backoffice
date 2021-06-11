@@ -8,6 +8,8 @@ import { SalesDayModule } from './components/sales-day/sales-day.module';
 import { TicketAverageModule } from './components/ticket-average/ticket-average.module';
 import { OrdersModule } from './components/orders/orders.module';
 import { PaymentMethodsModule } from './components/payment-methods/payment-methods.module';
+import { CardsModule } from './components/cards/cards.module';
+
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { PaymentMethodsModule } from './components/payment-methods/payment-metho
     SalesDayModule,
     TicketAverageModule,
     OrdersModule,
-    PaymentMethodsModule
+    PaymentMethodsModule,
+    CardsModule
+    
   ]
 })
 export class DashboardModule { }
