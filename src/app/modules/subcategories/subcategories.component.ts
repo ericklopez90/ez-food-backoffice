@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { categorys } from '@modules/category/category.component';
 import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from '@modules/category/category.service';
 
 
 @Component({
@@ -10,7 +10,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SubcategoriesComponent implements OnInit {
 
-  categories = categorys
+  get categories(){
+    return this.categoryService.category
+  }
+
 
   subcategories: subcategories[]=[
     {
@@ -53,7 +56,8 @@ export class SubcategoriesComponent implements OnInit {
 
 
 
-  constructor(private toastr :ToastrService) { }
+  constructor(private toastr :ToastrService,
+              private categoryService:CategoryService) { }
 
   ngOnInit(): void {
   }

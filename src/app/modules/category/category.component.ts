@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+
+import { CategoryService } from './category.service';
 
 @Component({
   selector: 'app-category',
@@ -8,35 +9,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CategoryComponent implements OnInit {
   
-  categories : Category[] = categorys
+  get categories(){
+    return this.categoryServices.category
+  }
 
-  constructor( private toastr :ToastrService) { }
+  constructor(private categoryServices: CategoryService) { }
 
   ngOnInit(): void {
   }
-  showSuccess() {
-    this.toastr.success('Se ha agregado correctamente', 'Hecho!');
-  }
+
 }
 
- interface Category {
+ export interface Category {
   name:string
 }
-
-export const categorys: Category[]=[
-  {
-    name: 'Desayunos'
-  },
-  {
-    name: 'Comidas'
-  },
-  {
-    name: 'Cenas'
-  },
-  {
-    name: 'Bebidas'
-  },
-  {
-    name: 'Postres'
-  },
-]
