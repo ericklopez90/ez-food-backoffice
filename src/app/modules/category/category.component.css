@@ -1,0 +1,19 @@
+::ng-deep .mat-table tbody tr:nth-child(even){
+  background-color:  rgba(0,0,0,.02) !important;
+}
+
+::ng-deep .mat-table thead tr{
+  background-color:  rgba(0,0,0,.02) !important;
+}
+
+::ng-deep .mat-form-field-flex {
+  background-color: white !important;
+}
+
+mat-form-field {
+  font-size: 10px !important;
+}
+
+.mat-cell {
+  border-right: 1px solid rgba(0,0,0,.1);
+}

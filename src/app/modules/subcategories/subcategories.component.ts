@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { categorys } from '@modules/category/category.component';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -10,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SubcategoriesComponent implements OnInit {
 
-  categories = categorys
+  categories = []
 
   subcategories: subcategories[]=[
     {

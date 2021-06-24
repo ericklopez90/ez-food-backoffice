@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+mat-form-field {
+  width: 100% !important;
+  font-size: 12px !important;
+}
+
 .fs-1{
     font-size: 3rem !important;
 }
@@ -57,3 +62,4 @@
 .text-success {
     color: #28a745!important;
 }
+
