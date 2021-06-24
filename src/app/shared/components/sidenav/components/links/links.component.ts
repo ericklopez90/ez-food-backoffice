@@ -30,6 +30,11 @@ export class LinksComponent implements OnInit {
       name: 'Mesas',
     },
     {
+      link: ['kitchen'],
+      img: 'fa fa-cheese',
+      name: 'Cocina',
+    },
+    {
       link: [],
       img: 'fa fa-tag',
       name: 'Categorías',

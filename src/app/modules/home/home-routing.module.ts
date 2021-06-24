@@ -12,7 +12,7 @@ import {
 const routes: Routes = [
   {
     path:'',
-    redirectTo: 'orders',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
@@ -48,6 +48,16 @@ const routes: Routes = [
       path: 'dashboard',
       loadChildren: () => import('@modules/dashboard/dashboard.module')
         .then(m => m.DashboardModule)
+    },
+    {
+      path: 'profile',
+      loadChildren: () => import('@modules/profile/profile.module')
+        .then(m => m.ProfileModule)
+    },
+    {
+      path: 'kitchen',
+      loadChildren: () => import('@modules/kitchen/kitchen.module')
+        .then(m => m.KitchenModule)
     },
   ]
 }];
