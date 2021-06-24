@@ -1,9 +1,7 @@
 <div class="row  border-bottom white-bg dashboard-header">
-
   <div class="col-12">
     <h1>Detalle de la orden</h1>
   </div>
-
   <div class="col-sm-12">
     <div class="table-responsive">
       <table class="table">
@@ -12,48 +10,35 @@
             <th style="width:25%">Producto</th>
             <th style="width:25%">Precio</th>
             <th style="width:25%">Cantidad</th>
-            <th style="width:25%" class="">Total</th>
+            <th style="width:25%">Total</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Enchiladas verdes</td>
-            <td>$ 100</td>
-            <td>2</td>
-            <td class="">$ 200</td>
+          <tr *ngFor="let detail of details">
+            <td>{{detail.product}}</td>
+            <td>{{detail.price | currency}}</td>
+            <td>{{detail.amount}}</td>
+            <td>{{totalList(detail.price, detail.amount) | currency}}</td>
           </tr>
-          <tr>
-            <td>Chilaquiles divorciados</td>
-            <td>$ 125</td>
-            <td>1</td>
-            <td class="">$ 125</td>
-          </tr>
-          <tr>
-            <td>Jugo verde</td>
-            <td>$ 45</td>
-            <td>2</td>
-            <td class="">$ 90</td>
-          </tr>
-
         </tbody>
         <tfoot>
           <tr>
             <td class="fw-bold7">Subtotal</td>
             <td></td>
             <td></td>
-            <td class="fw-bold7 ">$ 415</td>
+            <td class="fw-bold7 ">{{subtotal() | currency}}</td>
           </tr>
           <tr>
             <td class="fw-bold7">IVA</td>
             <td></td>
             <td></td>
-            <td class="fw-bold7 ">$ 66.40</td>
+            <td class="fw-bold7 ">{{iva() | currency}}</td>
           </tr>
           <tr>
             <td class="fw-bold7">Total</td>
             <td></td>
             <td></td>
-            <td class="fw-bold7 ">$ 481.40</td>
+            <td class="fw-bold7 ">{{total() | currency}}</td>
           </tr>
         </tfoot>
       </table>

@@ -1,8 +1,9 @@
 <ng-container *ngFor="let text of texts">
   <p class="fs-4 text-secondary mt-3">{{text.title}}</p>
   <p class="fs-3 text-dark my-2 fw-bold7">{{text.amount}}</p>
-  <p class="text-success fs-6 mt-3">
-    <mat-icon>trending_up</mat-icon>
+  <p class="fs-6 mt-3" 
+  [ngClass]="validateClass(text.contents)">
+    <mat-icon>{{validarIcon(text.contents)}}</mat-icon>
     {{text.contents}}%
     <span class="text-secondary fs-6">
       del periodo anterior

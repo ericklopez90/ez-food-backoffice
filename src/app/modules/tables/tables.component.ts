@@ -13,3 +13,17 @@ export class TablesComponent implements OnInit {
   }
 
 }
+
+interface Mesero {
+  name: string
+}
+
+interface Data {
+  tableNumber: number,
+  status: string,
+  orderNumber: string,
+  waiter: Mesero[],
+  availability: Boolean,
+  qr: string,
+
+}

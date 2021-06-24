@@ -2,6 +2,7 @@ import {
   Component,
   ViewChild
 } from "@angular/core";
+import { Text } from '@modules/dashboard/interface/text.interface';
 
 import {
   ChartComponent,
@@ -35,6 +36,13 @@ export interface ChartOptions  {
   styleUrls: ['./ticket-average.component.css']
 })
 export class TicketAverageComponent {
+
+  text: Text [] = [{
+    title: 'Ticket Promedio',
+    amount: 120.40,
+    contents: 13,
+  }]
+
   public chartOptions: any ;
 
   constructor() {

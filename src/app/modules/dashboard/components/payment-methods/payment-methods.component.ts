@@ -31,6 +31,29 @@ export type ChartOptions = {
 })
 export class PaymentMethodsComponent {
 
+  payments: MethodPayment [] = [
+    {
+      title: 'AMEX',
+      percentage: 30,
+      difference: 0.6
+    },
+    {
+      title: 'VISA/MC',
+      percentage: 27.1,
+      difference: -0.7
+    },
+    {
+      title: 'Efectivo',
+      percentage: 24.1,
+      difference: 0.1
+    },
+    {
+      title: 'Paypal',
+      percentage: 18.8,
+      difference: -0.2
+    },
+  ]
+
   public chartOptions: any;
 
   constructor() {
@@ -74,4 +97,28 @@ export class PaymentMethodsComponent {
       ]
     };
   }
+  validarIcon(a:number){
+    if (a < 0){
+      return 'trending_down'
+    } else if (a > 0) {
+      return 'trending_up'
+    } else {
+      return 'trending_flat'
+    } 
+  }
+  validateClass(a:number):string{
+    if (a < 0){
+      return 'text-danger';
+    } else if (a > 0) {
+      return 'text-success';
+    } else {
+      return 'text-info';
+    }
+  }
+}
+
+interface MethodPayment{
+  title: string,
+  percentage: number,
+  difference: number
 }

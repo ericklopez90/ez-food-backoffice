@@ -16,35 +16,13 @@
       </div>
     </div>
   
-      <div class="row mt-4 text-center">
-        <div class="col-6">
-          <p class="fs-9 m-0 text-secondary">AMEX</p>
-          <p class="fs-7 m-0 fw-bold7">30%</p>
-          <p class="fs-9 m-0 text-danger">
-            <mat-icon class="fs-8 m-0">arrow_downward</mat-icon>-0.6%
-          </p>
-        </div>
-        <div class="col-6">
-          <p class="fs-9 m-0 text-secondary">VISA/MC</p>
-          <p class="fs-7 m-0 fw-bold7">27.1%</p>
-          <p class="fs-9 m-0 text-success">
-            <mat-icon class="fs-8 m-0">arrow_upward</mat-icon>0.7%
-          </p>
-  
-        </div>
-        <div class="col-6 mt-2">
-          <p class="fs-9 m-0 text-secondary">Efectivo</p>
-          <p class="fs-7 m-0 fw-bold7">24.1%</p>
-          <p class="fs-9 m-0 text-success">
-            <mat-icon class="fs-8 m-0">arrow_upward</mat-icon>0.1%
-          </p>
-        </div>
-        <div class="col-6 mt-2">
-          <p class="fs-9 m-0 text-secondary">Paypal</p>
-          <p class="fs-7 m-0 fw-bold7">18.8%</p>
-          <p class="fs-9 m-0 text-success">
-            <mat-icon class="fs-8 m-0">arrow_upward</mat-icon>0.1%
-          </p>
-        </div>
+    <div class="row mt-4 text-center">
+      <div class="col-6" *ngFor="let payment of payments">
+        <p class="fs-9 m-0 text-secondary">{{payment.title}}</p>
+        <p class="fs-7 m-0 fw-bold7">{{payment.percentage}}%</p>
+        <p class="fs-9 m-0" [ngClass]="validateClass(payment.difference)">
+          <mat-icon class="fs-8 m-0">{{validarIcon(payment.difference)}}</mat-icon>{{payment.difference}}%
+        </p>
       </div>
-  </div>
+    </div>
+</div>

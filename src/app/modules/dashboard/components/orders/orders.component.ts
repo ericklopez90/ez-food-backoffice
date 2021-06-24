@@ -1,4 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
+import { Text } from '@modules/dashboard/interface/text.interface';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -29,6 +30,12 @@ export interface ChartOptions {
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent  {
+
+  text: Text [] = [{
+    title: 'N° de Ordenes',
+    amount: 882,
+    contents: -8,
+  }]
 
   public chartOptions: any;
 

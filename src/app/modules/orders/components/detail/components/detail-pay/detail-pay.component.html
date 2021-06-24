@@ -14,17 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>F5F5F5</td>
-            <td>Efectivo</td>
-            <td>$ 612</td>
-            <td>26 de Mayo de 2021, 21:30</td>
-          </tr>
-          <tr>
-            <td>KFNSF665SDFS1</td>
-            <td>PayPal</td>
-            <td>$ 350</td>
-            <td>26 de Mayo de 2021, 21:27</td>
+          <tr *ngFor="let lista of listas">
+            <td>{{lista.transaction}}</td>
+            <td>{{lista.methodPayment}}</td>
+            <td>{{lista.amount | currency}}</td>
+            <td>{{lista.date}}</td>
           </tr>
       </table>
     </div>

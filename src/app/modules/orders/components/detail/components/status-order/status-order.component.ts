@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./status-order.component.css']
 })
 export class StatusOrderComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  fecha(){
+    let fecha = new Date()
+    return fecha
   }
 
 }
