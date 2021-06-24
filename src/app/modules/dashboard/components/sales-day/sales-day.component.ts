@@ -1,4 +1,5 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component } from '@angular/core';
+import { Text } from '@modules/dashboard/interface/text.interface'
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -31,6 +32,12 @@ export interface ChartOptions {
 })
 export class SalesDayComponent {
   
+text: Text [] = [{
+  title: 'Venta Total del dia ',
+  amount: 0,
+  contents: 0,
+}]
+
 public chartOptions:any ;
 
 constructor() {
