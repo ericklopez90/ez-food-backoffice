@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoaderService } from '@services/loader.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ez-food-backoffice';
+
+  loading: Observable<boolean>;
+  constructor( private loader: LoaderService ) {
+    this.loading = this.loader.isLoading;
+  }
 }

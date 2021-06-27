@@ -1,8 +1,83 @@
+<<<<<<< HEAD
 <div class="row border-bottom white-bg dashboard-header">
   <div class="col-sm-6">
   <categories [categories]="categories"></categories>
   </div>
   <div class="col-sm-6">
     <new-categories></new-categories>
+=======
+<!--LISTADO DE CATEGOGIAS-->
+<div class="row  border-bottom white-bg dashboard-header">
+  <div class="col-sm-7">
+    <div class="col-12">
+      <h1>Categorías</h1>
+    </div>
+    <div class="ibox-content">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar una categoría</mat-label>
+        <input matInput type="text" (keyup)="applyFilter($event)" placeholder="Ej. Cenas, Mar y tierra">
+        <mat-error>El nombre de la categoría es requerido</mat-error>
+      </mat-form-field>
+      <div class="table-responsive">
+
+
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" class="w-100">
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef width="40%"> Categoría </th>
+              <td mat-cell *matCellDef="let row"> {{ row.name }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef > Visible en APP </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-form-field appearance="outline" class="mt-1 pl-2">
+                  <mat-select [(value)]="row.status" (selectionChange)="toggleVisibility( row )">
+                    <mat-option value="true">Si</mat-option>
+                    <mat-option value="false">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell text-center text-danger" colspan="2">
+                No se encontraron categorías
+              </td>
+            </tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="col-12">
+      <h1>Nueva categoría</h1>
+    </div>
+    <div class="ibox-content">
+      <form [formGroup]="form" (submit)="submit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de la categoría</mat-label>
+          <input matInput type="text" placeholder="Ej. Cenas, Mar y tierra" formControlName="control">
+          <mat-error>El nombre de la categoría es requerido</mat-error>
+        </mat-form-field>
+        <button mat-stroked-button color="primary" class="mx-1"
+        [disabled]="form.invalid" type="submit">Agregar</button>
+
+        <button mat-raised-button color="primary" type="button" class="mx-1"
+        [disabled]="dataSource.data.length === 0" (click)="dropCollection()">
+          Borrar colección
+      </button>
+      </form>
+    </div>
+>>>>>>> origin/sub-categories
   </div>
 </div>

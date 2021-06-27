@@ -1,5 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
+mat-form-field {
+  width: 100% !important;
+  font-size: 12px !important;
+}
+
+::ng-deep .mat-table tbody tr:nth-child(even){
+  background-color:  rgba(0,0,0,.02) !important;
+}
+
+::ng-deep .mat-table thead tr{
+  background-color:  rgba(0,0,0,.02) !important;
+}
+
+td {
+  padding: 0 0.75rem !important;
+}
+
+.mat-cell {
+  border-right: 1px solid rgba(0,0,0,.1);
+}
+
+
 .fs-1{
     font-size: 3rem !important;
 }
@@ -57,3 +79,4 @@
 .text-success {
     color: #28a745!important;
 }
+
