@@ -21,7 +21,7 @@ export class LoaderInterceptorService implements HttpInterceptor {
 
     _request = request.clone({
         setHeaders: {
-          bearer: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRVc2VyIjp7Il9pZCI6IjYwYmE2MzdkZDg2NzY5NjRlY2E3YjRjNiIsIm5hbWUiOiJBbGJlcnRvIiwibGFzdF9uYW1lIjoiU2l1cm9iIiwiYnJhbmQiOnsiX2lkIjoiNjBiN2RhOTg4ZDhmMGM1YjE4YzMyNmFiIiwibmFtZSI6IkFwcCBNYW5hZ2VyIC0gRVogRm9vZCJ9LCJwaG9uZSI6NTUyNzA3MDM3MSwiZW1haWwiOiJhbGJlcnRvQGV6LXRlay5jb20ubXgifSwiaWF0IjoxNjI0NTAyMjgzLCJleHAiOjE2MjQ1MjM4ODN9.1zMg5ibmn7qMDg7PWq0eVXrwTTmNpmYtJJESHl0rljI'
+          bearer: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRVc2VyIjp7Il9pZCI6IjYwYmE2MzdkZDg2NzY5NjRlY2E3YjRjNiIsIm5hbWUiOiJBbGJlcnRvIiwibGFzdF9uYW1lIjoiU2l1cm9iIiwiYnJhbmQiOnsiX2lkIjoiNjBiN2RhOTg4ZDhmMGM1YjE4YzMyNmFiIiwibmFtZSI6IkFwcCBNYW5hZ2VyIC0gRVogRm9vZCJ9LCJwaG9uZSI6NTUyNzA3MDM3MSwiZW1haWwiOiJhbGJlcnRvQGV6LXRlay5jb20ubXgifSwiaWF0IjoxNjI0NzU5NTYwLCJleHAiOjE2MjUxMDUxNjB9.oOAhMF5TZzZ8tQtfXuMo3Y3HPXqG1E9RqznoKyKW6MI'
         }
     });
 

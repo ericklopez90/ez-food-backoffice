@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { CategoryService } from './category.service';
+import { CategoryService } from '@services/category.service';
 
 @Component({
   selector: 'app-category',
