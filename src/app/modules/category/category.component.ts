@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-
-import { CategoryService } from './category.service';
-=======
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,22 +6,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { CategoryService } from '@services/category.service';
->>>>>>> origin/sub-categories
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
-<<<<<<< HEAD
-export class CategoryComponent implements OnInit {
-  
-  get categories(){
-    return this.categoryServices.category
-  }
-
-  constructor(private categoryServices: CategoryService) { }
-=======
 export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
 
   form = new FormGroup({
@@ -44,19 +29,10 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
     ) { }
 
   ngOnDestroy(): void { this.subs.map( s => s.unsubscribe() ); }
->>>>>>> origin/sub-categories
 
   ngOnInit(): void {
     this.getCategories();
   }
-<<<<<<< HEAD
-
-}
-
- export interface Category {
-  name:string
-}
-=======
 
   ngAfterViewInit(): void {
 
@@ -151,4 +127,3 @@ export class CategoryComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 }
->>>>>>> origin/sub-categories

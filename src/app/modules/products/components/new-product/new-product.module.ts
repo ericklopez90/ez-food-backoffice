@@ -6,6 +6,7 @@ import { NewProductComponent } from './new-product.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ThirdComponent } from './components/third/third.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ThirdComponent } from './components/third/third.component';
   ],
   imports: [
     CommonModule,
-    NewProductRoutingModule
+    NewProductRoutingModule,
+    DragDropModule
   ]
 })
 export class NewProductModule { }

@@ -12,13 +12,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NewCategoriesComponent } from './new-categories/new-categories.component';
-import { CategoriesComponent } from './categories/categories.component';
+
 
 
 @NgModule({
   declarations: [
     CategoryComponent,
-    CategoriesComponent,
     NewCategoriesComponent
   ],
   imports: [

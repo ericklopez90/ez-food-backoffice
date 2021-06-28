@@ -4,8 +4,25 @@ import { CategoryComponent } from './category.component';
 
 const routes: Routes = [
   {
+    path:'',
+    redirectTo: 'list',
+    pathMatch: 'full'
+  },
+  {
     path: '',
     component: CategoryComponent,
+    children: [
+      {
+        path: 'list',
+        loadChildren: () => import('@modules/category/categories/categories.module')
+          .then(m => m.CategoriesModule)
+      },
+      {
+        path: 'edit/:id',
+        loadChildren: () => import('@modules/category/edit-categories/edit-categories.module')
+          .then(m => m.EditCategoriesModule)
+      },
+    ]
   }
 ];
 

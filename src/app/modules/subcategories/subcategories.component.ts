@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { CategoryService } from '@modules/category/category.service';
-=======
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +7,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, Subscription } from 'rxjs';
 import { SubCategoryService } from '../../shared/services/sub-category.service';
 import { CategoryService } from '@services/category.service';
->>>>>>> origin/sub-categories
 
 
 @Component({
@@ -20,58 +14,6 @@ import { CategoryService } from '@services/category.service';
   templateUrl: './subcategories.component.html',
   styleUrls: ['./subcategories.component.css']
 })
-<<<<<<< HEAD
-export class SubcategoriesComponent implements OnInit {
-
-  get categories(){
-    return this.categoryService.category
-  }
-
-
-  subcategories: subcategories[]=[
-    {
-      name:'Huevos',
-      categories:'Desayunos',
-    },
-    {
-      name:'Chilaquiles',
-      categories:'Desayunos',
-    },
-    {
-      name:'Carnes',
-      categories:'Comidas',
-    },
-    {
-      name:'Pescados',
-      categories:'Comidas',
-    },
-    {
-      name:'Ligeras',
-      categories:'Cenas',
-    },
-    {
-      name:'Con alcohol',
-      categories:'Bebidas',
-    },
-    {
-      name:'Sin alcohol',
-      categories:'Bebidas',
-    },
-    {
-      name:'Crepas',
-      categories:'Postres',
-    },
-    {
-      name:'Pan',
-      categories:'Postres',
-    },
-  ]
-
-
-
-  constructor(private toastr :ToastrService,
-              private categoryService:CategoryService) { }
-=======
 export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
 
   form = new FormGroup({
@@ -93,7 +35,6 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
     ) { }
 
   ngOnDestroy(): void { this.subs.map( s => s.unsubscribe() ); }
->>>>>>> origin/sub-categories
 
   ngOnInit(): void {
     this.getSubCategories();
