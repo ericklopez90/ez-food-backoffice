@@ -1,0 +1,33 @@
+<div class="row border-bottom white-bg dashboard-header">
+  <div class="col-12">
+    <h1>Reportes</h1>
+    <div class="ibox-content">
+      <div class="row">
+        <div class="col-sm-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Seleccione una sección</mat-label>
+            <mat-select>
+              <mat-option>Productos</mat-option>
+              <mat-option>Mesas</mat-option>
+              <mat-option>Categorías</mat-option>
+              <mat-option>Subcategorías</mat-option>
+              <mat-option>Usuarios</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

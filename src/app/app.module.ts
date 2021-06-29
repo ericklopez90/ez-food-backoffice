@@ -11,6 +11,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from '@services/loader-interceptor.service';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatNativeDateModule } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,10 +24,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     NgApexchartsModule,
     MatProgressSpinnerModule,
-    ToastrModule.forRoot()
-
+    ToastrModule.forRoot(),
+    MatNativeDateModule
   ],
-  providers: [{
+  providers: [
+  MatNativeDateModule,
+  {
     provide: HTTP_INTERCEPTORS,
     useClass: LoaderInterceptorService,
     multi: true

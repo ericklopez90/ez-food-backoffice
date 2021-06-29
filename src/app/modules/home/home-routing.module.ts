@@ -59,6 +59,16 @@ const routes: Routes = [
       loadChildren: () => import('@modules/kitchen/kitchen.module')
         .then(m => m.KitchenModule)
     },
+    {
+      path: 'reporting',
+      loadChildren: () => import('@modules/reporting/reporting.module')
+        .then(m => m.ReportingModule)
+    },
+    {
+      path: 'users',
+      loadChildren: () => import('@modules/users/users.module')
+        .then(m => m.UsersModule)
+    },
   ]
 }];
 
