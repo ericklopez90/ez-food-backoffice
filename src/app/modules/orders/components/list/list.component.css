@@ -1,39 +1,41 @@
-.label-primary{
-    background-color: #1ab394;
-    color: #FFFFFF;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    padding: 3px 8px;
-    text-shadow: none;
-    border-radius: 0.25em;
-    line-height: 1;
-    white-space: nowrap;
+.label-primary {
+  background-color: #1ab394;
+  color: #FFFFFF;
+  padding: 3px 8px;
+  text-shadow: none;
+  border-radius: 0.25em;
+  line-height: 1;
+  white-space: nowrap;
 }
-.label-danger{
-    background-color: #ED5565;
-    color: #FFFFFF;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    padding: 3px 8px;
-    text-shadow: none;
-    border-radius: 0.25em;
-    line-height: 1;
-    white-space: nowrap;
+
+.label-danger {
+  background-color: #ED5565;
+  color: #FFFFFF;
+  padding: 3px 8px;
+  text-shadow: none;
+  border-radius: 0.25em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .label {
-    background-color: #D1DADE;
-    color: #5E5E5E;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    padding: 3px 8px;
-    text-shadow: none;
-    border-radius: 0.25em;
-    line-height: 1;
-    white-space: nowrap;
+  background-color: #D1DADE;
+  color: #5E5E5E;
+  padding: 3px 8px;
+  text-shadow: none;
+  border-radius: 0.25em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-.pointer{
-    cursor:pointer;
-  }
-  
+.pointer {
+  cursor: pointer;
+}
+
+::ng-deep .mat-form-field-flex {
+  background-color: white !important;
+}
+
+mat-form-field {
+  font-size: 10px !important;
+}

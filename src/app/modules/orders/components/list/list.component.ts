@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrderListService } from './order-list.service';
 
 @Component({
   selector: 'app-list',
@@ -7,161 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'mesa', 'mesero', 'total', 'metodoPago', 'status', 'fecha'];
+  dataSource = this.lista
 
-  lista:  List []=[
-    {
-      id: 'SDF456',
-      mesa: '14',
-      mesero: 'Alberto EfeCinco',
-      total: 700,
-      metodoPago: 'Efectivo',
-      status:'Cerrada',
-      fecha: '2020-05-02 03:02:50',
-    },
-    {
-      id: '98S7DF',
-      mesa: '1',
-      mesero: 'Suaverto López',
-      total: 324,
-      metodoPago: 'TDC',
-      status:'Pendiente de pago',
-      fecha: '2020-05-02 10:59:50',
-    },
-    {
-      id: 'C78V6B',
-      mesa: '2',
-      mesero: 'El batelenguas Sánchez',
-      total: 567,
-      metodoPago: 'Paypal',
-      status:'Abierta',
-      fecha: '2020-05-02 12:19:50',
-    },
-    {
-      id: '83ASD',
-      mesa: '10',
-      mesero: 'El batelenguas Sánchez',
-      total: 123,
-      metodoPago: 'Paypal',
-      status:'Pendiente de pago',
-      fecha: '2020-05-02 13:42:55',
-    },
-    {
-      id: '897DGF',
-      mesa: '1',
-      mesero: 'Suaverto López',
-      total: 534,
-      metodoPago: 'TDC',
-      status:'Abierta',
-      fecha: '2020-05-02 14:52:50',
-    },
-    {
-      id: 'WER548',
-      mesa: '4',
-      mesero: 'Suaverto López',
-      total: 456,
-      metodoPago: 'Efectivo',
-      status:'Cerrada',
-      fecha: '2020-05-02 19:42:20',
-    },
-    {
-      id: 'G897JG',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 789,
-      metodoPago: 'TDC',
-      status:'Pendiente de pago',
-      fecha: '2020-05-02 10:52:50',
-    },
-    {
-      id: '0978QE',
-      mesa: '6',
-      mesero: 'Alberto EfeCinco',
-      total: 123,
-      metodoPago: 'Efectivo',
-      status:'Cerrada',
-      fecha: '2020-05-02 07:22:50',
-    },
-    {
-      id: '432HJK',
-      mesa: '8',
-      mesero: 'El batelenguas Sánchez',
-      total: 783,
-      metodoPago: 'Paypal',
-      status:'Cerrada',
-      fecha: '2020-05-02 06:38:50',
-    },
-    {
-      id: '908ASD',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 1534,
-      metodoPago: 'TDC',
-      status:'Cerrada',
-      fecha: '2020-05-02 20:32:31',
-    },
-    {
-      id: '908ASD',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 1534,
-      metodoPago: 'TDC',
-      status:'Cerrada',
-      fecha: '2020-05-02 20:32:31',
-    },
-    {
-      id: '908ASD',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 1534,
-      metodoPago: 'TDC',
-      status:'Cerrada',
-      fecha: '2020-05-02 20:32:31',
-    },
-    {
-      id: '908ASD',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 1534,
-      metodoPago: 'TDC',
-      status:'Cerrada',
-      fecha: '2020-05-02 20:32:31',
-    },
-    {
-      id: '908ASD',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 1534,
-      metodoPago: 'TDC',
-      status:'Cerrada',
-      fecha: '2020-05-02 20:32:31',
-    },
-    {
-      id: '908ASD',
-      mesa: '5',
-      mesero: 'Alberto EfeCinco',
-      total: 1534,
-      metodoPago: 'TDC',
-      status:'Cerrada',
-      fecha: '2020-05-02 20:32:31',
-    },
-  ]
+  get lista(){
+    return this.OrderListServices.lista
+  }
 
-  constructor( private _router: Router ) { }
+  constructor( private _router: Router,
+               private OrderListServices:OrderListService) { }
 
   ngOnInit(): void {
+    
   }
 
+  badgeText( status:string ) :string | any {
+    if       (status==='Abierta')           {'label-primary'}
+    else if  (status==='Cerrada')           {'label'}
+    else if  (status==='Pendiente de pago') {'label-danger'}
+  }
+  
   showDetail() :void{
-    this._router.navigateByUrl('orders/detail');
+    this._router.navigateByUrl('/orders/detail');
   }
 }
 
-export interface List{
-  id : string;
-  mesa : string;
-  mesero : string;
-  total: number;
-  metodoPago: string;
-  status: string;
-  fecha: string;
-}

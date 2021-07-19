@@ -2,8 +2,9 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import {catchError, map, tap} from 'rxjs/operators'
+import { catchError, map } from 'rxjs/operators'
 import { LoaderService } from './loader.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class LoaderInterceptorService implements HttpInterceptor {
 
   constructor(
     private loaderService: LoaderService,
-    private router: Router
+    private router: Router,
   ) {}
+
 
   intercept( request: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {
     this.loaderService.show();
@@ -21,7 +23,7 @@ export class LoaderInterceptorService implements HttpInterceptor {
 
     _request = request.clone({
         setHeaders: {
-          bearer: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dnZWRVc2VyIjp7Il9pZCI6IjYwYmE2MzdkZDg2NzY5NjRlY2E3YjRjNiIsIm5hbWUiOiJBbGJlcnRvIiwibGFzdF9uYW1lIjoiU2l1cm9iIiwiYnJhbmQiOnsiX2lkIjoiNjBiN2RhOTg4ZDhmMGM1YjE4YzMyNmFiIiwibmFtZSI6IkFwcCBNYW5hZ2VyIC0gRVogRm9vZCJ9LCJwaG9uZSI6NTUyNzA3MDM3MSwiZW1haWwiOiJhbGJlcnRvQGV6LXRlay5jb20ubXgifSwiaWF0IjoxNjI0NzU5NTYwLCJleHAiOjE2MjUxMDUxNjB9.oOAhMF5TZzZ8tQtfXuMo3Y3HPXqG1E9RqznoKyKW6MI'
+          bearer: localStorage.getItem('token') || ''
         }
     });
 
@@ -46,5 +48,4 @@ export class LoaderInterceptorService implements HttpInterceptor {
       })
     )
   }
-
 }
