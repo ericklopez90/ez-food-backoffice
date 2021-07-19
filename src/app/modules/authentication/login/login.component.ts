@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '@services/login.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     private loginServices: LoginService,
     private fb : FormBuilder,
     private _router:Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -39,11 +41,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user', JSON.stringify(resp.payload));
         this._router.navigateByUrl('/dashboard');
     },
-    error => console.log(error)
-
-    )
+    error => this.toastr.error('La contraseña o el usuario es incorrecto', 'Inténtalo de nuevo' ))
   }
-}
+  }
 /*
 email:alberto@ez-tek.com.mx
 pass:Password1!

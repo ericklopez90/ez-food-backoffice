@@ -5,6 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -15,7 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+    
   ]
 })
 export class LoginModule { }
