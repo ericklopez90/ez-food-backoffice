@@ -72,13 +72,32 @@
           </mat-select>
           <mat-error>La categoría es requerida</mat-error>
         </mat-form-field>
-        <button mat-stroked-button color="primary" class="mx-1" [disabled]="form.invalid" type="submit">Agregar</button>
-
-        <button mat-raised-button color="primary" type="button" class="mx-1" [disabled]="dataSource.data.length === 0"
+        <mat-form-field appearance="outline">
+          <mat-label>Selecciona un color</mat-label>
+          <mat-select formControlName="bgColor">
+            <mat-option *ngFor="let color of colors" type="text" [value]="color" >
+              <div [style.background-color]="color" >{{color}}</div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="row">
+          <div class="col-12">
+            <button mat-raised-button color="primary" (click)="input.click()">
+              Selecciona una imagen
+              <mat-icon>file_upload</mat-icon>
+            </button>
+            <span class="ml-3" *ngIf="file">{{file.name}}</span>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <button mat-stroked-button color="primary" class="mx-1" [disabled]="form.invalid" type="submit">Agregar</button>
+          
+          <button mat-raised-button color="primary" type="button" class="mx-1" [disabled]="dataSource.data.length === 0"
           (click)="dropCollection()">
           Borrar colección
         </button>
+      </div>
       </form>
     </div>
   </div>
-</div>
+</div><input type="file" class="ocultar" #input (change)="uploadFile( $event.target )">

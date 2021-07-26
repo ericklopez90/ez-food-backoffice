@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-edit-product',
@@ -17,6 +19,18 @@ export class EditProductComponent {
     'Azúcar glass',
     'Jarábe de chocolate'
   ];
+//
+//  formEditProdct: FormGroup = this.fb.group({
+//    name: ['', Validators.required],
+//    description: ['', Validators.required],
+//    ingredients: ['', Validators.required],
+//    price: ['', Validators.required],
+//    categories: ['', Validators.required],
+//    subcategories: ['', Validators.required],
+//    file: ['', Validators.required]
+//  })
+// 
+  constructor( ){ }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -28,5 +42,8 @@ export class EditProductComponent {
                         event.currentIndex);
     }
   }
-
 }
+
+
+
+

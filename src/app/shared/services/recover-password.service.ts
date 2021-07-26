@@ -4,27 +4,25 @@ import { ServerResponse } from '@interfaces/token.interface';
 import { Observable } from 'rxjs';
 import { ServiceUtil } from 'utils/classes/service.class';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RecoverPasswordService {
 
   serviceUtil: ServiceUtil;
   endpointRoute: string;
-   
-  constructor(
-    private http: HttpClient
-  ) {
+
+  constructor( private http: HttpClient ) 
+  {
     this.serviceUtil = new ServiceUtil();
-    this.endpointRoute = this.serviceUtil.createRoute('login');
-   }
-  
-  login( email:string, pass:string, brand:string ):Observable<ServerResponse>{
+    this.endpointRoute = this.serviceUtil.createRoute('restore-password');
+  }
+
+  recovery( email:string, brand:string ):Observable<ServerResponse>{
     const url = `${this.endpointRoute}`;
-    const body = { email, pass, brand };
+    const body = { email, brand };
 
     return this.http.post<ServerResponse>(url, body)
   }
 }
-
-

@@ -17,10 +17,8 @@ export class CategoryService {
     this.endpointRoute = this.serviceUtil.createRoute('categories');
   }
 
-  save( name: string ): Observable<any> {
-    const rawParams = { name, restaurant: '60d3f0799d493162042a915c' };
-    const params = this.serviceUtil.validateParams( rawParams );
-    return this.http.put( this.endpointRoute, params);
+  save( formData:FormData ): Observable<any> {
+    return this.http.put( this.endpointRoute, formData);
   }
 
   fetch(): Observable<any> {

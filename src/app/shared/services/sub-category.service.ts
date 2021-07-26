@@ -17,10 +17,8 @@ export class SubCategoryService {
     this.endpointRoute = this.serviceUtil.createRoute('sub-categories');
   }
 
-  save( name: string, category: string ): Observable<any> {
-    const rawParams = { name, category };
-    const params = this.serviceUtil.validateParams( rawParams );
-    return this.http.put( this.endpointRoute, params);
+  save( formData:FormData ): Observable<any> {
+    return this.http.put( this.endpointRoute, formData);
   }
 
   fetch(): Observable<any> {

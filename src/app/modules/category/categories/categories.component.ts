@@ -15,13 +15,34 @@ import { Router } from '@angular/router';
 })
 export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  colors: string[] = [
+    '#FFFAFA',
+    '#F0FFF0',
+    '#F5FFFA',
+    '#F0FFFF',
+    '#F0F8FF',
+    '#F8F8FF',
+    '#F5F5F5',
+    '#FFF5EE',
+    '#F5F5DC',
+    '#FDF5E6',
+    '#FFFAF0',
+    '#FFFFF0',
+    '#FAEBD7',
+    '#FAF0E6',
+    '#FFF0F5',
+    '#FFE4E1']
+
   form = new FormGroup({
-    control: new FormControl( '', Validators.required )
-  });
+    name: new FormControl( '', Validators.required ),
+    bgColor: new FormControl( '', Validators.required )
+    });
+
   categories : any[] = [];
   subs: Subscription[] = [];
   dataSource = new MatTableDataSource<any>([]);
-  displayedColumns = ['name', 'status'];
+  displayedColumns = ['name', 'status']; 
+  file!: File;
   @ViewChild( MatPaginator ) paginator!: MatPaginator;
 
   constructor(
@@ -73,9 +94,17 @@ export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   submit() {
-    if ( this.form.valid ) {
-      const name = this.form.get('control')?.value;
-      const sub = this.category$.save( name )
+    if ( this.form.valid && this.file ) {
+      const name = this.form.get('name')?.value;
+      const bgColor = this.form.get('bgColor')?.value ;
+
+      const formData = new FormData();
+      formData.append('restaurant','60d3f0799d493162042a915c');
+      formData.append('name', name);
+      formData.append('bgColor', bgColor);
+      formData.append('image', this.file)
+
+      const sub = this.category$.save( formData )
       .subscribe(
        _ => {
           this.toastr.success(`${ name } se agregó correctamente`, 'Hecho!');
@@ -130,4 +159,12 @@ export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
   showEdit(id:string) :void{
     this._router.navigateByUrl(`categories/edit/${id}`);
   }
+
+  uploadFile(file: any ):void{
+    const input = file as HTMLInputElement;
+    if( input && input.files ) {
+      this.file = input.files[0];
+    }
+  }
 }
+

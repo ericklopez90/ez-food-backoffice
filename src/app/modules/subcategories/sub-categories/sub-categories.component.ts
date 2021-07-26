@@ -15,10 +15,28 @@ import { CategoryService } from '@services/category.service';
   styleUrls: ['./sub-categories.component.css']
 })
 export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
+  colors: string[] = [
+    '#FFFAFA',
+    '#F0FFF0',
+    '#F5FFFA',
+    '#F0FFFF',
+    '#F0F8FF',
+    '#F8F8FF',
+    '#F5F5F5',
+    '#FFF5EE',
+    '#F5F5DC',
+    '#FDF5E6',
+    '#FFFAF0',
+    '#FFFFF0',
+    '#FAEBD7',
+    '#FAF0E6',
+    '#FFF0F5',
+    '#FFE4E1']
 
   form = new FormGroup({
     name: new FormControl( '', Validators.required ),
     category: new FormControl( '', Validators.required ),
+    bgColor: new FormControl( '', Validators.required )
   });
   subCategories : any[] = [];
   categories: any[]     = []
@@ -26,6 +44,7 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
   categories$!: Observable<any>;
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns = ['name',  'category', 'status'];
+  file!: File;
   @ViewChild( MatPaginator ) paginator!: MatPaginator;
 
   constructor(
@@ -89,10 +108,19 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
   }
 
   submit() {
-    if ( this.form.valid ) {
+    if ( this.form.valid && this.file ) {
       const name = this.form.get('name')?.value;
+      const bgColor = this.form.get('bgColor')?.value ;
       const category = this.form.get('category')?.value;
-      const sub = this.subCategory$.save( name, category )
+
+      const formData = new FormData();
+      formData.append('restaurant','60d3f0799d493162042a915c');
+      formData.append('name', name);
+      formData.append('category', category);
+      formData.append('bgColor', bgColor);
+      formData.append('image', this.file)
+
+      const sub = this.subCategory$.save( formData )
       .subscribe(
        _ => {
           this.toastr.success(`${ name } se agregó correctamente`, 'Hecho!');
@@ -143,5 +171,10 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
     )
   }
 
-
+  uploadFile(file: any ):void{
+    const input = file as HTMLInputElement;
+    if( input && input.files ) {
+      this.file = input.files[0];
+    }
+  }
 }

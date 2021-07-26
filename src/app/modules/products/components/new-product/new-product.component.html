@@ -1,17 +1,163 @@
-<div class="row  border-bottom white-bg dashboard-header gx-5">
+<div class="row  border-bottom white-bg dashboard-header gx-5" [formGroup]="formNewProduct">
   <div class="col-12">
-    <h1>Nuevo producto</h1>
+    <h1>Editando <span class="fw-bold7">Brownie de chocolate</span></h1>
   </div>
+
   <div class="col-12">
     <div class="row ">
+
       <div class="col-sm-4 m-1 ibox-content">
-        <first></first>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <div class="form-group">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Buscar Ingredientes</mat-label>
+            <input matInput formControlName="ingredients">
+          </mat-form-field>
+          <span class="text-secondary fs-10">
+            ¿No encuentras el ingrediente? Agrégalo <a href="#" class="font-weight-bold" data-toggle="modal"
+              data-target="#exampleModal">aquí</a>
+          </span>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title fs-6" id="exampleModalLabel">Agregar ingrediente</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Buscar Ingredientes</mat-label>
+                    <input matInput formControlName="ingredients" aria-describedby="basic-addon1" aria-label="Nombre">
+                  </mat-form-field>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-12">
+              <h3 class="text-center">
+                Ingredientes
+              </h3>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <h5>Obligatorios</h5>
+              <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="mandatory"
+                [cdkDropListConnectedTo]="[doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of mandatory" cdkDrag>
+                  {{item}}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <h5>Modificables</h5>
+              <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="optional"
+                [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of optional" cdkDrag>
+                  {{item}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
       <div class="col-sm-3 m-1 ibox-content">
-        <second></second>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Precio</mat-label>
+              <input matInput formControlName="price">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>IVA</mat-label>
+              <input matInput value="154" disabled>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Selecciona una categoria</mat-label>
+          <mat-select formControlName="categories">
+            <mat-option *ngFor="let category of categories" type="text" [value]="category.name">
+              <div >{{category.name}}</div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="form-group">
+          <select class="form-control form-control-sm">
+            <option disabled>Selecciona una subcategoría</option>
+            <option>Jugos</option>
+            <option>Bebidas calientes</option>
+            <option>Bebidas alcoholicas</option>
+            <option selected>Chocolate</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <div class="custom-file">
+            <input id="inputGroupFile01" type="file" class="custom-file-input" (change)="uploadFile( $event.target )">
+            <label class="custom-file-label" for="inputGroupFile01" ></label>
+            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-sm btn-outline-primary mt-3">
+            Actualizar
+          </button>
+        </div>
       </div>
+
       <div class="col-sm-4 ibox-content family m-1">
-        <third></third>
+        <div class=" text-light font-weight-bold text-center h-100">
+          <div class="row">
+            <div class="col-lg-12 mt-4 ">
+              <div class="product-card product-list mb-30">
+                <img src="assets/img/postre1.png" class="imagen-produc">
+                <div class="product-card-inner">
+                  <div class="product-card-body">
+                    <div class="product-category">
+                      <span class="product-title text-dark">
+                        {{formNewProduct.value.name}}
+                      </span>
+                      <div class="product-category mt-3">
+                        <a class="text-decoration-none text-secondary">
+                          {{formNewProduct.value.description}}
+                        </a>
+                      </div>
+                      <div>
+                        <span class="product-price mt-4">
+                          {{formNewProduct.value.price | currency}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 export interface ServerResponse {
     payload:  Payload;
-    errors:   any[];
+    errors?:   any[];
     response: Response;
     meta:     Meta;
 }
