@@ -1,12 +1,13 @@
-<div id="wrapper">
+<navigator (sideNavToggle)="drawer.toggle()"></navigator>
+<mat-drawer-container class="outer-drawer" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="side" class="inner-drawer text-dark" [opened]="false">
+    <sidenav (optionSelected)="drawer.close()"></sidenav>
+  </mat-drawer>
 
-    <sidenav></sidenav>
+  <mat-drawer-content>
+    <div class="container-fluid w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
 
-  <div id="page-wrapper" class="gray-bg dashbard-1">
-
-    <navigator></navigator>
-
-    <router-outlet></router-outlet>
-
-  </div>
-</div>
+</mat-drawer-container>

@@ -5,6 +5,10 @@ import { RouterModule } from '@angular/router';
 import { LinksComponent } from './components/links/links.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -15,7 +19,11 @@ import { PerfilComponent } from './components/perfil/perfil.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatSidenavModule,
+    MatListModule,
+    MatDividerModule,
+    MatExpansionModule
   ],
   exports: [SidenavComponent]
 })

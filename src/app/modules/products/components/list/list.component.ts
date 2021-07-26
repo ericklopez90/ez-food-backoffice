@@ -24,10 +24,10 @@ export class ListComponent implements OnInit {
   }
 
   showNewProduct():void{
-  this._router.navigateByUrl('products/new-product');
+  this._router.navigateByUrl('meals/new-product');
   }
   showEditProduct():void{
-  this._router.navigateByUrl('products/edit-product');
+  this._router.navigateByUrl('meals/edit-product');
   }
 
 }

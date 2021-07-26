@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { NavigatorModule } from '@components/navigator/navigator.module';
 import { SidenavModule } from '@components/sidenav/sidenav.module';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { SidenavModule } from '@components/sidenav/sidenav.module';
     CommonModule,
     HomeRoutingModule,
     NavigatorModule,
-    SidenavModule
+    SidenavModule,
+    MatSidenavModule
   ]
 })
 export class HomeModule { }

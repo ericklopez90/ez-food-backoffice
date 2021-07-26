@@ -30,7 +30,7 @@ const routes: Routes = [
         .then(m => m.TablesModule)
     },
     {
-      path: 'products',
+      path: 'meals',
       loadChildren: () => import('@modules/products/products.module')
         .then(m => m.ProductsModule)
     },
@@ -40,7 +40,7 @@ const routes: Routes = [
         .then(m => m.CategoryModule)
     },
     {
-      path: 'subcategories',
+      path: 'sub-categories',
       loadChildren: () => import('@modules/subcategories/subcategories.module')
         .then(m => m.SubcategoriesModule)
     },

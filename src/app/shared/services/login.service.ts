@@ -11,17 +11,17 @@ export class LoginService {
 
   serviceUtil: ServiceUtil;
   endpointRoute: string;
-   
+
   constructor(
     private http: HttpClient
   ) {
     this.serviceUtil = new ServiceUtil();
     this.endpointRoute = this.serviceUtil.createRoute('login');
    }
-  
-  login( email:string, pass:string, brand:string ):Observable<ServerResponse>{
+
+  login( username:string, pass:string, restaurant: string ):Observable<ServerResponse>{
     const url = `${this.endpointRoute}`;
-    const body = { email, pass, brand };
+    const body = { username, pass, restaurant };
 
     return this.http.post<ServerResponse>(url, body)
   }

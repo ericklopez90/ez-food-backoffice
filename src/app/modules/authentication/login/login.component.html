@@ -5,21 +5,31 @@
       <div>
         <h1 class="logo-names mt-5">EZ-FOOD</h1>
       </div>
-      <h3 class="mt-5">Bienvenido a EZ-Food</h3>
+      <h3 class="mt-5">Bienvenido</h3>
       <p>Tu restaurante inteligente</p>
       <form class="my-5" role="form" action="index.html" [formGroup]="formularioLogin" (ngSubmit)="login()">
-        <mat-form-field class="w-100" appearance="fill">
-          <input matInput placeholder="Usuario" formControlName="email">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Usuario o correo electrónico</mat-label>
+          <input matInput placeholder="Ej. juanlo o juan@mi-restaurante.com" formControlName="username">
         </mat-form-field>
-        <mat-form-field class="w-100" appearance="fill">
-          <input matInput type="password" placeholder="Contraseña" formControlName="pass">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" placeholder="Escriba su contraseña" formControlName="pass">
+        </mat-form-field>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Conectarse a sucursal</mat-label>
+          <mat-select formControlName="restaurant">
+            <mat-option *ngFor="let restaurant of restaurants" [value]="restaurant._id">
+              {{ restaurant.name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
         <a>
           <button mat-raised-button class="w-100" [disabled]="formularioLogin.invalid">Entrar</button>
         </a>
       </form>
-      <a [routerLink]="['/forgot-password']" routerLinkActive="router-link-active">
-        <span>Olvidaste la contraseña?</span>
+      <a [routerLink]="['/forgot-password']">
+        ¿Olvidaste la contraseña?
       </a>
       <p class="m-t"> <small>EZ-TEK &copy; 2021</small> </p>
     </div>

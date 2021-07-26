@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'navigator',
   templateUrl: './navigator.component.html',
   styleUrls: ['./navigator.component.css']
 })
-export class NavigatorComponent implements OnInit {
+export class NavigatorComponent {
 
+  @Output() sideNavToggle: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() { }
 
-  ngOnInit(): void {
+  toggle(): void {
+    this.sideNavToggle.emit( true );
   }
 
 }

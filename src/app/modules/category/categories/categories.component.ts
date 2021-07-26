@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { CategoryService } from '@services/category.service';
 import { Router } from '@angular/router';
+import { ImageHandlerService } from '@services/image-handler.service';
 
 @Component({
   selector: 'categories',
@@ -38,17 +39,19 @@ export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
     bgColor: new FormControl( '', Validators.required )
     });
 
+  imagePreview = '';
   categories : any[] = [];
   subs: Subscription[] = [];
   dataSource = new MatTableDataSource<any>([]);
-  displayedColumns = ['name', 'status']; 
+  displayedColumns = ['name', 'status'];
   file!: File;
   @ViewChild( MatPaginator ) paginator!: MatPaginator;
 
   constructor(
     private toastr :ToastrService,
     private category$: CategoryService,
-    private _router: Router
+    private _router: Router,
+    private iHandler: ImageHandlerService
     ) { }
 
   ngOnDestroy(): void { this.subs.map( s => s.unsubscribe() ); }
@@ -110,6 +113,7 @@ export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
           this.toastr.success(`${ name } se agregó correctamente`, 'Hecho!');
           this.getCategories();
           this.form.reset();
+          this.imagePreview = '';
         },
         ( (err: HttpErrorResponse) => this.handleError( err ) )
       );
@@ -164,6 +168,8 @@ export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
     const input = file as HTMLInputElement;
     if( input && input.files ) {
       this.file = input.files[0];
+      this.iHandler.handler( this.file )
+      .then( res => this.imagePreview = res );
     }
   }
 }

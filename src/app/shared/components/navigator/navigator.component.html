@@ -1,14 +1,6 @@
-<div class="row border-bottom">
-  <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-    <div class="navbar-header">
-      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-    </div>
-    <ul class="nav navbar-top-links navbar-right">
-      <li>
-        <a [routerLink]="['/login']" routerLinkActive="router-link-active" >
-          <i class="fa fa-sign-out"></i> Cerrar Sesión
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
+<mat-toolbar class="border-bottom">
+  <button mat-icon-button (click)="toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>EZ-FOOD</span>
+</mat-toolbar>

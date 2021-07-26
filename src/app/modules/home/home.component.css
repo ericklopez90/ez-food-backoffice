@@ -1,0 +1,18 @@
+.outer-drawer {
+  height: calc(100% - 64px);
+  overflow: hidden;
+}
+
+.inner-drawer {
+  width: 15%;
+}
+
+::ng-deep .mat-drawer-container {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .inner-drawer {
+    width: 75%;
+  }
+}

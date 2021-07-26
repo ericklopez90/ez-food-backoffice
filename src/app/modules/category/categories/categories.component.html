@@ -1,5 +1,5 @@
 <div class="row  border-bottom white-bg dashboard-header">
-  <div class="col-sm-7">
+  <div class="col-sm-4">
     <div class="col-12">
       <h1>Categorías</h1>
     </div>
@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     <div class="col-12">
       <h1>Nueva categoría</h1>
     </div>
@@ -57,12 +57,16 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Selecciona un color</mat-label>
+          <input type="color" matInput formControlName="bgColor">
+        </mat-form-field>
+        <!--mat-form-field appearance="outline">
+          <mat-label>Selecciona un color</mat-label>
           <mat-select formControlName="bgColor">
             <mat-option *ngFor="let color of colors" type="text" [value]="color">
               <div [style.background-color]="color">{{color}}</div>
             </mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field-->
         <div class="row">
           <div class="col-12">
             <button mat-raised-button color="primary" (click)="input.click()">
@@ -81,6 +85,23 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="col-12">
+      <h1>Vista Previa</h1>
+    </div>
+    <div class="ibox-content">
+      <div class="col-12 my-2 category-wrapper">
+        <div class="row align-items-center h-100" [style.backgroundColor]="form.get('bgColor')?.value">
+          <div class="col-5">
+            <span class="fs-5">{{ form.get('name')?.value }}</span>
+          </div>
+          <div class="col-7">
+            <img *ngIf="imagePreview" class="d-block img-category mx-auto" [src]="imagePreview">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div><input type="file" #input class="ocultar" (change)="uploadFile( $event.target )">

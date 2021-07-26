@@ -1,0 +1,18 @@
+.parent-node {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.child-node {
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+
+.child-node:hover {
+  border-left: solid 5px #ccc;
+  font-weight: 500;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 0 0 3px !important;
+}
