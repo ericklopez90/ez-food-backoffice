@@ -98,21 +98,20 @@
         </div>
         <mat-form-field appearance="outline">
           <mat-label>Selecciona una categoria</mat-label>
-          <mat-select formControlName="categories">
-            <mat-option *ngFor="let category of categories" type="text" [value]="category.name">
+          <mat-select formControlName="categories" (valueChange)="getSubcategory()">
+            <mat-option *ngFor="let category of categories" [value]="category.name">
               <div >{{category.name}}</div>
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <div class="form-group">
-          <select class="form-control form-control-sm">
-            <option disabled>Selecciona una subcategoría</option>
-            <option>Jugos</option>
-            <option>Bebidas calientes</option>
-            <option>Bebidas alcoholicas</option>
-            <option selected>Chocolate</option>
-          </select>
-        </div>
+        <mat-form-field appearance="outline">
+          <mat-label>Selecciona una categoria</mat-label>
+          <mat-select formControlName="subcategories"  (change)="getSubcategory()">
+            <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.name">
+              <div >{{subcategory.name}}</div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
         <div class="input-group">
           <div class="custom-file">

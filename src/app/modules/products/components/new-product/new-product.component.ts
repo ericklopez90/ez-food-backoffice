@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '@services/category.service';
 import { Categories } from '@interfaces/categories.interface';
 import { ActivatedRoute } from '@angular/router';
+import { SubCategoryService } from '@services/sub-category.service';
+import { Subcategories } from '@interfaces/subcategories.interface';
 
 @Component({
   selector: 'app-new-product',
@@ -22,6 +24,7 @@ export class NewProductComponent implements OnInit {
   ];
 
   categories : Categories[] = []
+  subcategories: Subcategories [] = []
   file!: File;
 
   formNewProduct: FormGroup = this.fb.group({
@@ -36,7 +39,8 @@ export class NewProductComponent implements OnInit {
  
   constructor( private fb:FormBuilder,
                private _route:ActivatedRoute,
-               private category$:CategoryService ){ }
+               private category$:CategoryService,
+               private subCategory$:SubCategoryService ){ }
 
     ngOnInit(){
       this._route.params.subscribe(
@@ -58,7 +62,6 @@ export class NewProductComponent implements OnInit {
   getCategories(){
     this.category$.fetch()
     .subscribe(resp => {
-      console.log(resp.payload)
       this.categories = resp.payload
     })
   }
@@ -68,5 +71,11 @@ export class NewProductComponent implements OnInit {
     if( input && input.files ) {
       this.file = input.files[0];
     }
+  }
+
+  getSubcategory():void {
+    const category = this.formNewProduct.get("categories")?.value;
+    this.subCategory$.fetchOne(category)
+    .subscribe(resp => this.subcategories = resp.payload)
   }
 }
