@@ -79,6 +79,7 @@
               <div [style.background-color]="color" >{{color}}</div>
             </mat-option>
           </mat-select>
+          <mat-error>Un color es requerido</mat-error>
         </mat-form-field>
         <div class="row">
           <div class="col-12">
@@ -90,7 +91,7 @@
           </div>
         </div>
         <div class="row mt-4">
-          <button mat-stroked-button color="primary" class="mx-1" [disabled]="form.invalid" type="submit">Agregar</button>
+          <button mat-stroked-button color="primary" class="mx-1" [disabled]="form.invalid" (click)="validImage()" type="submit">Agregar</button>
           
           <button mat-raised-button color="primary" type="button" class="mx-1" [disabled]="dataSource.data.length === 0"
           (click)="dropCollection()">

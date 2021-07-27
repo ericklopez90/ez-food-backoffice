@@ -167,10 +167,22 @@ export class CategoriesComponent implements OnInit, OnDestroy, AfterViewInit {
   uploadFile(file: any ):void{
     const input = file as HTMLInputElement;
     if( input && input.files ) {
-      this.file = input.files[0];
-      this.iHandler.handler( this.file )
-      .then( res => this.imagePreview = res );
+      const fileName = input.files[0].name
+      const indx = input.files[0].name.lastIndexOf(".") + 1
+      const extenFile = input.files[0].name.substr(indx, fileName.length).toLowerCase()
+      if( extenFile=='jpg' || extenFile=='jpeg' || extenFile=='png' ){
+        this.file = input.files[0];
+        this.iHandler.handler( this.file )
+        .then( res => this.imagePreview = res );
+      } else {
+        this.toastr.error('El archivo tiene que ser una imagen', 'Tipo de archivo incorrecto')
+      }
+    }
+  }
+
+  validImage(){
+    if(!this.file){
+      this.toastr.error('Es necesaria una imagen' , 'Formulario incompleto')
     }
   }
 }
-

@@ -86,13 +86,13 @@
           <div class="col-sm-6">
             <mat-form-field class="w-100" appearance="outline">
               <mat-label>Precio</mat-label>
-              <input matInput formControlName="price">
+              <input matInput formControlName="price" (change)="getIva()">
             </mat-form-field>
           </div>
           <div class="col-sm-6">
             <mat-form-field class="w-100" appearance="outline">
               <mat-label>IVA</mat-label>
-              <input matInput value="154" disabled>
+              <input matInput [value]="iva"  disabled>
             </mat-form-field>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'sidenav',
@@ -51,12 +52,18 @@ export class SidenavComponent {
   ]
 
   constructor(
-    private router: Router
+    private router: Router,
   ) { }
 
   navigate( route: string ): void {
     this.router.navigateByUrl( route );
     this.optionSelected.emit();
+  }
+
+  logout( route:string ):void{
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    this.router.navigateByUrl( route );    
   }
 }
 

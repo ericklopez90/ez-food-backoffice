@@ -26,6 +26,7 @@ export class NewProductComponent implements OnInit {
   categories : Categories[] = []
   subcategories: Subcategories [] = []
   file!: File;
+  iva!: number;
 
   formNewProduct: FormGroup = this.fb.group({
     name: ['', Validators.required],
@@ -77,5 +78,9 @@ export class NewProductComponent implements OnInit {
     const category = this.formNewProduct.get("categories")?.value;
     this.subCategory$.fetchOne(category)
     .subscribe(resp => this.subcategories = resp.payload)
+  }
+
+  getIva(){
+    this.iva = this.formNewProduct.get('price')?.value * .16;
   }
 }

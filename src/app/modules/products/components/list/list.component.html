@@ -7,7 +7,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-4">
-            <input class="form-control form-control-sm w-100" placeholder="Buscar producto">
+            <input class="form-control form-control-sm w-100" (keyup)="applyFilter($event)" placeholder="Buscar producto">
           </div>
           <div class="col-6 offset-2 text-right">
             <button class="btn btn-sm btn-outline-primary" (click)="showNewProduct()">Nuevo producto</button>
@@ -50,7 +50,7 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row class="pointer" *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator>
     </div>

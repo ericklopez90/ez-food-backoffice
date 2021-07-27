@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable, Subscription } from 'rxjs';
 import { SubCategoryService } from 'shared/services/sub-category.service';
 import { CategoryService } from '@services/category.service';
+import { ImageHandlerService } from '@services/image-handler.service';
 
 
 @Component({
@@ -38,6 +39,8 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
     category: new FormControl( '', Validators.required ),
     bgColor: new FormControl( '', Validators.required )
   });
+  
+  imagePreview = '';
   subCategories : any[] = [];
   categories: any[]     = []
   subs: Subscription[]  = [];
@@ -51,6 +54,7 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
     private toastr :ToastrService,
     private subCategory$: SubCategoryService,
     private category$: CategoryService,
+    private iHandler: ImageHandlerService,
     ) { }
 
   ngOnDestroy(): void { this.subs.map( s => s.unsubscribe() ); }
@@ -129,11 +133,12 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
         },
         ( (err: HttpErrorResponse) => this.handleError( err ) )
       );
-
       this.subs.push( sub );
-
-
     }
+  }
+
+  validImage(){
+    if(!this.file){this.toastr.error('Es necesaria una imagen' , 'Formulario incompleto')}
   }
 
   handleError( err: HttpErrorResponse): void {
@@ -174,7 +179,16 @@ export class SubcategoriesComponent implements OnInit, OnDestroy, AfterViewInit 
   uploadFile(file: any ):void{
     const input = file as HTMLInputElement;
     if( input && input.files ) {
-      this.file = input.files[0];
+      const fileName = input.files[0].name
+      const indx = input.files[0].name.lastIndexOf(".") + 1
+      const extenFile = input.files[0].name.substr(indx, fileName.length).toLowerCase()
+      if( extenFile=='jpg' || extenFile=='jpeg' || extenFile=='png' ){
+        this.file = input.files[0];
+        this.iHandler.handler( this.file )
+        .then( res => this.imagePreview = res );
+      } else {
+        this.toastr.error('El archivo tiene que ser una imagen', 'Tipo de archivo incorrecto')
+      }
     }
   }
 }
