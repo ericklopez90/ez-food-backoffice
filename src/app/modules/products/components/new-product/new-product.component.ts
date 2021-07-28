@@ -6,6 +6,8 @@ import { Categories } from '@interfaces/categories.interface';
 import { ActivatedRoute } from '@angular/router';
 import { SubCategoryService } from '@services/sub-category.service';
 import { Subcategories } from '@interfaces/subcategories.interface';
+import { debounce } from "typescript-debounce-decorator";
+import { IngredientsService } from '@services/ingredients.service';
 
 @Component({
   selector: 'app-new-product',
@@ -28,10 +30,13 @@ export class NewProductComponent implements OnInit {
   file!: File;
   iva!: number;
 
+  
+
+
   formNewProduct: FormGroup = this.fb.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
-    ingredients: ['', Validators.required],
+    ingredients: ['', [Validators.required, Validators.minLength(3)]],
     price: ['', Validators.required],
     categories: ['', Validators.required],
     subcategories: ['', Validators.required],
@@ -41,7 +46,8 @@ export class NewProductComponent implements OnInit {
   constructor( private fb:FormBuilder,
                private _route:ActivatedRoute,
                private category$:CategoryService,
-               private subCategory$:SubCategoryService ){ }
+               private subCategory$:SubCategoryService,
+               private ingredient$:IngredientsService ){ }
 
     ngOnInit(){
       this._route.params.subscribe(
@@ -83,4 +89,16 @@ export class NewProductComponent implements OnInit {
   getIva(){
     this.iva = this.formNewProduct.get('price')?.value * .16;
   }
+
+  @debounce(750)
+  getIngredient(){
+    const params = this.formNewProduct.get("ingredients")?.value; 
+    this.ingredient$.getIngredient( params );
+  }
+
+  addIngredient(){
+    const ingredient = this.formNewProduct.get("ingredients")?.value; 
+    this.mandatory.push(ingredient)
+  }
+
 }

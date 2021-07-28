@@ -21,3 +21,50 @@
     border-color: #18a689;
     color: white;
 }
+
+.auth-text {
+    position: absolute;
+    top: 40%;
+    left: 5%;
+    font-size: xx-large;
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+  }
+  
+  .auth-text-bot {
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+  }
+  
+  .auth-text-img {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    width: 100px;
+    height: 100px;
+  
+  }
+  
+  .blue {
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  .parallax {
+    /* The image used */
+    background-image: url("/assets/fondo.jpg");
+  
+    /* Set a specific height */
+    min-height: 100%;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  

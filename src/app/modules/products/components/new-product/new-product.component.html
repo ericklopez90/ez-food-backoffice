@@ -18,10 +18,10 @@
         <div class="form-group">
           <mat-form-field class="w-100" appearance="outline">
             <mat-label>Buscar Ingredientes</mat-label>
-            <input matInput formControlName="ingredients">
+            <input matInput formControlName="ingredients" (onChange)="getIngredient()" (keyup.enter)="addIngredient()">
           </mat-form-field>
           <span class="text-secondary fs-10">
-            ¿No encuentras el ingrediente? Agrégalo <a href="#" class="font-weight-bold" data-toggle="modal"
+            ¿No encuentras el ingrediente? Agrégalo <a href=# class="font-weight-bold" data-toggle="modal"
               data-target="#exampleModal">aquí</a>
           </span>
 
@@ -39,12 +39,12 @@
                 <div class="modal-body">
                   <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Buscar Ingredientes</mat-label>
-                    <input matInput formControlName="ingredients" aria-describedby="basic-addon1" aria-label="Nombre">
+                    <input matInput formControlName="ingredients" aria-describedby="basic-addon1" aria-label="Nombre" (onChange)="getIngredient()">
                   </mat-form-field>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addIngredient()" >Agregar</button>
                 </div>
               </div>
             </div>
