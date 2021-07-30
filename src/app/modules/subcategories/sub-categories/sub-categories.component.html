@@ -1,5 +1,5 @@
 <div class="row  border-bottom white-bg dashboard-header">
-  <div class="col-sm-7">
+  <div class="col-sm-4">
     <div class="col-12">
       <h1>Subcategorías</h1>
     </div>
@@ -45,14 +45,12 @@
               </td>
             </tr>
           </table>
-
           <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator>
         </div>
-
       </div>
     </div>
   </div>
-  <div class="col-sm-5">
+  <div class="col-sm-4">
     <div class="col-12">
       <h1>Nueva Subcategoría</h1>
     </div>
@@ -74,11 +72,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Selecciona un color</mat-label>
-          <mat-select formControlName="bgColor">
-            <mat-option *ngFor="let color of colors" type="text" [value]="color" >
-              <div [style.background-color]="color" >{{color}}</div>
-            </mat-option>
-          </mat-select>
+          <input type="color" matInput formControlName="bgColor">
           <mat-error>Un color es requerido</mat-error>
         </mat-form-field>
         <div class="row">
@@ -91,14 +85,32 @@
           </div>
         </div>
         <div class="row mt-4">
-          <button mat-stroked-button color="primary" class="mx-1" [disabled]="form.invalid" (click)="validImage()" type="submit">Agregar</button>
-          
+          <button mat-stroked-button color="primary" class="mx-1" [disabled]="form.invalid" (click)="validImage()"
+            type="submit">Agregar</button>
+
           <button mat-raised-button color="primary" type="button" class="mx-1" [disabled]="dataSource.data.length === 0"
-          (click)="dropCollection()">
-          Borrar colección
-        </button>
-      </div>
+            (click)="dropCollection()">
+            Borrar colección
+          </button>
+        </div>
       </form>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="col-12">
+      <h1>Vista Previa</h1>
+    </div>
+    <div class="ibox-content">
+      <div class="col-12 my-2 subcategory-wrapper">
+        <div class="row align-items-center h-100" [style.backgroundColor]="form.get('bgColor')?.value">
+          <div class="col-5">
+            <span class="fs-5">{{ form.get('name')?.value }}</span>
+          </div>
+          <div class="col-7">
+            <img *ngIf="imagePreview" class="d-block img-category mx-auto" [src]="imagePreview">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div><input type="file" class="ocultar" #input (change)="uploadFile( $event.target )">

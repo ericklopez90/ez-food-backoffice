@@ -9,8 +9,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgApexchartsModule } from 'ng-apexcharts'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from '@services/loader-interceptor.service';
-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Dialog } from '@modules/products/components/new-product/components/dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -24,6 +25,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule,
     ToastrModule.forRoot()
 
+  ],
+  entryComponents: [
+    Dialog
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -1,10 +1,15 @@
 ::ng-deep .mat-form-field-flex {
-    background-color: white !important;
-  }
-  mat-form-field {
-    font-size: 10px !important;
-  }
-  
-  .ocultar{
-    display: none;
-  }
+  background-color: white !important;
+}
+
+mat-form-field {
+  font-size: 10px !important;
+}
+
+.ocultar {
+  display: none;
+}
+
+.subcategory-wrapper {
+  height: 190px;
+}
